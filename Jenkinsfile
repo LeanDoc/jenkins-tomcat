@@ -11,14 +11,14 @@ pipeline {
     WAR_FILE="app-0.1.0.war"
   }
   stages {
-    stage('verify tooling') {
-      steps {
-        sh '''
-          java -version
-          ./bld version
-        '''
-      }
-    }
+//     stage('verify tooling') {
+//       steps {
+//         sh '''
+//           java -version
+//           ./bld version
+//         '''
+//       }
+//     }
     stage('download') {
       steps {
         sh './bld download purge'
