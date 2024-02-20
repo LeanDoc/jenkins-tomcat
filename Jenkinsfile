@@ -5,7 +5,7 @@ pipeline {
   }    
   environment {
     TOMCAT_CREDS=credentials('ssh-jenkins-key')
-    TOMCAT_SERVER="192.168.1.1"
+    TOMCAT_SERVER="localhost"
     ROOT_WAR_LOCATION="/opt/tomcat/webapps"
     LOCAL_WAR_DIR="build/dist"
     WAR_FILE="app-0.1.0.war"
