@@ -11,6 +11,7 @@ pipeline {
     LOCAL_WAR_DIR="build/dist"
     WAR_FILE="app-0.1.0.war"
   }
+
   stages {
     stage('verify tooling') {
       steps {
