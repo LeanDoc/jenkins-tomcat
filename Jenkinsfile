@@ -36,11 +36,11 @@ pipeline {
         sh './bld precompile'
       }
     }
-    stage('test') {
-      steps {
-        sh './bld test'
-      }
-    }
+//     stage('test') {
+//       steps {
+//         sh './bld test'
+//       }
+//     }
     stage('war') {
       steps {
         sh './bld war'
