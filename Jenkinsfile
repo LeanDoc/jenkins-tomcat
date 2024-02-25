@@ -10,6 +10,7 @@ pipeline {
     ROOT_WAR_LOCATION="/opt/tomcat/webapps"
     LOCAL_WAR_DIR="build/dist"
     WAR_FILE="app-0.1.0.war"
+
   }
 
   stages {
