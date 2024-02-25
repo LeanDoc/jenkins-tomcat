@@ -8,7 +8,8 @@ pipeline {
     TOMCAT_SERVER="192.168.1.35"
     //178.252.97.22
     ROOT_WAR_LOCATION="/opt/tomcat/webapps"
-    LOCAL_WAR_DIR="build/dist"
+    LOCAL_WAR_DIR="/build/dist"
+//     LOCAL_WAR_DIR="build/dist"
     WAR_FILE="app-0.1.0.war"
   }
 
