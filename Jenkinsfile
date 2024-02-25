@@ -5,7 +5,7 @@ pipeline {
   }    
   environment {
     TOMCAT_CREDS=credentials('ssh-jenkins-key')
-    TOMCAT_SERVER="192.168.1.35:8080"
+    TOMCAT_SERVER="192.168.1.35"
     //178.252.97.22
     ROOT_WAR_LOCATION="/opt/tomcat/webapps"
     LOCAL_WAR_DIR="build/dist"
@@ -26,21 +26,21 @@ pipeline {
         sh './bld download purge'
       }
     }
-//     stage('compile') {
-//       steps {
-//         sh './bld clean compile'
-//       }
-//     }
-//     stage('precompile') {
-//       steps {
-//         sh './bld precompile'
-//       }
-//     }
-//     stage('test') {
-//       steps {
-//         sh './bld test'
-//       }
-//     }
+    stage('compile') {
+      steps {
+        sh './bld clean compile'
+      }
+    }
+    stage('precompile') {
+      steps {
+        sh './bld precompile'
+      }
+    }
+    stage('test') {
+      steps {
+        sh './bld test'
+      }
+    }
     stage('war') {
       steps {
         sh './bld war'
@@ -54,7 +54,7 @@ pipeline {
           scp -i $TOMCAT_CREDS $LOCAL_WAR_DIR/$WAR_FILE $TOMCAT_CREDS_USR@$TOMCAT_SERVER:$ROOT_WAR_LOCATION/ROOT.war
           ssh -i $TOMCAT_CREDS $TOMCAT_CREDS_USR@$TOMCAT_SERVER "chown $TOMCAT_CREDS_USR:$TOMCAT_CREDS_USR $ROOT_WAR_LOCATION/ROOT.war"
           ssh -i $TOMCAT_CREDS $TOMCAT_CREDS_USR@$TOMCAT_SERVER "/opt/tomcat/bin/catalina.sh start"
-        '''
+//         '''
       }
     }
   }
